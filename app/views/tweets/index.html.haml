@@ -1,0 +1,22 @@
+.row
+  .col-lg-3
+    Left
+  .col-lg-6
+    %h1 Vistula Twitter
+    .add.tweet
+      = simple_form_for @tweet do |f|
+        = f.input :content
+        .pull-right
+          = f.button :submit, 'Tweet', class: 'btn btn-danger btn-lg'
+      - @tweets.each do |tweet|
+        .tweet
+          = tweet.content
+  .col-lg-3
+    = link_to('Logout', destroy_user_session_path, :method => :delete)
+    
+
+:css
+  body { background: #00FFBA; }
+
+:css
+  .tweet { color: #382A33; font-size: large; }
